@@ -1,0 +1,122 @@
+React Interview Preparation – Q1 to Q28
+Interview revision notes with corrections, explanations and interview-ready answers.
+
+Q1. What is the difference between var, let and const?
+Explanation: var is function-scoped and can be redeclared/reassigned. let is block-scoped and can be reassigned but not redeclared in the same scope. const is block-scoped and cannot be reassigned or redeclared.
+Interview-ready answer: var, let, and const are used to declare variables. The main differences are scope and whether they can be reassigned or redeclared.
+
+Q2. What is the difference between == and ===?
+Explanation: == performs type coercion before comparison. === compares both value and type without coercion. Example: 5 == "5" is true, while 5 === "5" is false.
+Interview-ready answer: == compares values with type coercion, while === compares both value and type without coercion.
+
+Q3. What is the difference between null and undefined?
+Explanation: null is an intentional empty value. undefined usually means a value has not been assigned. An undeclared variable causes ReferenceError.
+Interview-ready answer: null represents an intentional empty value, while undefined usually means a value has not been assigned.
+
+Q4. What are primitive and reference types?
+Explanation: Primitive types include string, number, boolean, undefined, null, bigint and symbol. Objects, arrays and functions are reference types.
+Interview-ready answer: Primitive values are copied by value, while objects, arrays and functions are reference types.
+
+Q5. What is the difference between map() and forEach()?
+Explanation: map() transforms data and returns a new array. forEach() is mainly used for side effects and returns undefined. React commonly uses map() to render lists.
+Interview-ready answer: map returns a new array, while forEach is mainly used for side effects and returns undefined.
+
+Q6. What is shallow copy vs deep copy?
+Explanation: A shallow copy creates a new outer object but nested objects can still share references. A deep copy also copies nested structures. structuredClone() can be used for many data structures.
+Interview-ready answer: A shallow copy copies only the top level, while a deep copy also copies nested structures.
+
+Q7. What is the spread operator?
+Explanation: The ... spread operator copies object properties or array elements into a new structure. In { ...user, age: 26 }, the later age property overrides the old age.
+Interview-ready answer: The spread operator copies properties from an existing object or elements from an array into a new structure.
+
+Q8. What is the difference between props and state?
+Explanation: Props are data passed from parent to child and are read-only for the child. State is internal component data managed with a setter.
+Interview-ready answer: Props are data passed from a parent component to a child component, while state is internal data managed by the component itself.
+
+Q9. What is useState()?
+Explanation: useState is a React Hook that returns the current state value and a setter function. Updating state normally causes a re-render.
+Interview-ready answer: useState is a React Hook used to create and manage state in a functional component. It returns the current state and a setter function.
+
+Q10. What is re-rendering?
+Explanation: Re-rendering means React runs the component again to calculate the updated UI, commonly after state or prop changes.
+Interview-ready answer: Re-rendering means React runs the component again to calculate the updated UI, usually when its state or props change.
+
+Q11. What is the Virtual DOM?
+Explanation: The Virtual DOM is a lightweight JavaScript representation of the UI. React compares the previous and new representation and updates necessary parts of the actual DOM.
+Interview-ready answer: Virtual DOM is a lightweight JavaScript representation of the actual DOM. React compares versions and updates the necessary parts of the actual DOM.
+
+Q12. What is JSX?
+Explanation: JSX stands for JavaScript XML. It is HTML-like syntax written inside JavaScript and is used to describe React UI.
+Interview-ready answer: JSX stands for JavaScript XML. It allows us to write HTML-like syntax inside JavaScript code to describe the UI.
+
+Q13. What is a React Component?
+Explanation: A component is a reusable piece of UI, usually a JavaScript function returning JSX.
+Interview-ready answer: A React Component is a reusable piece of UI, usually created as a JavaScript function that returns JSX.
+
+Q14. Functional vs Class Components?
+Explanation: Functional components are JavaScript functions and use Hooks. Class components extend React.Component and use render/lifecycle methods. Modern React generally prefers functional components.
+Interview-ready answer: A functional component is a JavaScript function that returns JSX and can use Hooks. A class component extends React.Component and uses methods such as render and lifecycle methods.
+
+Q15. What is useEffect()?
+Explanation: useEffect handles side effects such as API calls, timers, event listeners and synchronization with external systems. It is not specifically an onClick handler.
+Interview-ready answer: useEffect is a React Hook used to perform side effects in a functional component. It runs after rendering based on its dependency array.
+
+Q16. What does the useEffect dependency array do?
+Explanation: [] means the effect runs after the initial render and does not re-run due to state/prop changes. [count] runs initially and when count changes. No array runs after every render.
+Interview-ready answer: An empty dependency array means the effect runs after the initial render. Dependencies such as [count] cause it to run when those values change.
+
+Q17. What is useRef()?
+Explanation: useRef stores a mutable value that persists between renders. Updating .current does not cause a re-render. It is also commonly used for DOM references.
+Interview-ready answer: useRef lets us store a mutable value that persists between renders without causing a re-render when .current changes.
+
+Q18. useState() vs useRef()?
+Explanation: useState is for UI-related data and updates cause re-renders. useRef is for persistent mutable values or DOM references and updates do not cause re-renders.
+Interview-ready answer: useState is used for data that affects the UI, while useRef persists mutable values or DOM references without triggering a re-render.
+
+Q19. What is prop drilling?
+Explanation: Prop drilling means passing props through intermediate components just to reach a deeply nested child, even when the intermediate components do not need the data.
+Interview-ready answer: Prop drilling is passing props through multiple intermediate components to reach a deeply nested child.
+
+Q20. What is Context API?
+Explanation: Context lets components share data without passing props through every level. Typical flow: createContext, Provider, then useContext.
+Interview-ready answer: Context API is used to share data across multiple components without passing props through every level. It helps avoid prop drilling.
+
+Q21. Why is key used in React lists?
+Explanation: A key is a stable unique identifier for list items. It helps React identify items that changed, were added or removed. Prefer stable IDs over array indexes when lists can change order.
+Interview-ready answer: A key is a unique identifier used by React when rendering lists so React can efficiently identify changed, added or removed items.
+
+Q22. What is conditional rendering?
+Explanation: Conditional rendering means showing different UI based on a condition. Common approaches are if/else, ternary and &&.
+Interview-ready answer: Conditional rendering means rendering different UI or components based on a condition.
+
+Q23. What is event handling in React?
+Explanation: Event handling means responding to actions such as click, change or submit by passing a function to an event handler. onClick={handleClick} passes a function reference.
+Interview-ready answer: Event handling in React means responding to user actions by passing a function to an event handler.
+
+Q24. What is a controlled component?
+Explanation: A controlled form input gets its value from React state and updates through onChange. React state is the source of truth.
+Interview-ready answer: A controlled component is a form element whose value is controlled by React state using value and onChange.
+
+Q25. useEffect vs useLayoutEffect?
+Explanation: useEffect runs after the browser paints. useLayoutEffect runs synchronously after the DOM update but before paint. useLayoutEffect is useful for DOM measurements or changes where flicker must be avoided.
+Interview-ready answer: Both are used for side effects. useEffect runs after paint, while useLayoutEffect runs after the DOM update but before the browser paints.
+
+Q26. Counter: setCount(count + 1) clicked 3 times?
+Explanation: One click per event updates from the latest rendered value, so three separate clicks produce 3. Multiple identical setCount(count + 1) calls in one event can be batched and use the same captured count, producing only 1.
+Interview-ready answer: React may batch state updates. When multiple updates depend on previous state, use the functional updater.
+
+Q27. What is the functional state updater?
+Explanation: Use setCount(prev => prev + 1) when the next state depends on the previous state. Three updater calls transform 0 to 1 to 2 to 3.
+Interview-ready answer: Use the functional updater when a state update depends on the previous state because React provides the latest previous value to the updater.
+
+Q28. What is wrong with mutating a state object directly?
+Explanation: Code such as user.age = 26; setUser(user) mutates the existing object and passes the same reference back. React may not detect a meaningful state change. Use setUser({ ...user, age: 26 }) instead.
+Interview-ready answer: React state should be updated immutably. Create a new object, for example setUser({ ...user, age: 26 }), rather than mutating the existing state object.
+
+Quick Revision Rules
+1. If next state depends on previous state, use the functional updater.
+2. Do not mutate React state directly.
+3. Use stable IDs for React list keys when possible.
+4. Use map() when transforming data or rendering lists.
+5. Props flow from parent to child; Context can reduce prop drilling.
+6. Use state for UI data; useRef for persistent mutable values that should not trigger renders.
